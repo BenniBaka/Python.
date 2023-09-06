@@ -9,3 +9,6 @@ if alder >= 18:
     print("Du er over 18")
  
 print("Om 100 år er du ", alder + 100, " år.")
+
+
+kioko
