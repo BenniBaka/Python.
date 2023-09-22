@@ -1,5 +1,13 @@
 trust = 40
 Chadness = 10
+kort_kniv = 0
+kjøkken_kniv = 0
+spade = 0
+baseball_kølle = 0
+bue = 0
+piler = 0
+knyttnever = 2
+
 def rom_1():
     print("du er på skeld og Red sier at han så deg vent selv om det var du som så han vent, og han kaller deg får en sussy baka, og nå er alle i crewet enig med red. hva gjør du?")
     valg = input("A: Løpe vekk for og prøve og gjømme deg B: Si, Red kinda SUS C: Gå til huset til Red og skru av nettet til han. -> ")
@@ -115,6 +123,7 @@ def rom_14():
     print("Siden shaman durek har en stor banan så har han ingen valg anna enn og akseptere challengen din.")
 
 def rom_15():
+    global trust
     print("Du ringer shaman banan")
     print("Han svarer, hva gjør du nå?")
     valg = input("A: Du tracker hans eksakte lokasjon via og se hvor dekningen hans kommer fra og du sender Truls sine slaver for og ta han ned. B: Du sier at han må komme til Sindres magiske kjeller. C: Du sier at han må komme på besøk for og få en suprise.\
@@ -126,6 +135,7 @@ D: Du sier at han må møte Gustavo for og conducte business med los buornos her
     if valg == "C":
         rom_22()
     if valg == "D":
+        trust += 30
         rom_23()
     
 
@@ -141,38 +151,56 @@ def rom_21():
 C: Du sier at han Sindre har lyst til at Shaman og han skal joine Håvard sin kjeller -> ")
     if valg == "A":
         trust -= 30
-    print("1 hour later.")
-    print(f"Nå er shaman durek kommet fram til Sindre's magiske kjeller og du har {trust} fra Shaman Durek")
-    valg = input("")
+    print(f"Nå er shaman durek på vei til Sindre's magiske kjeller og du har {trust} trust. Hva gjør du nå?")
+    valg = input("A: Si ifra til Sindre at han må gjøre klar kjelleren B: Se på youtube.")
+    if valg == "A":
+        rom_24()
+    if valg == "B":
+        rom_game_over()
+
 
     if valg == "B":
-        trust += 10
-    print("1 hour later.")
-    print(f"Nå er shaman durek kommet fram til Sindre's magiske kjeller og du har {trust} trust igjen")
-    valg = input("")
+        trust -= 10
+    print(f"Nå er shaman durek på vei til Sindre's magiske kjeller og du har {trust} trust. Hva gjør du nå?")
+    valg = input("A: Si ifra til Sindre at han må gjøre klar kjelleren B: Se på youtube.")
+    if valg == "A":
+        rom_24()
+    if valg == "B":
+        rom_game_over()
+
 
     if valg == "C":
-        trust -= 10
-    print("1 hour later.")
-    print(f"Nå er shaman durek kommet fram til Sindre's magiske kjeller og du har {trust} trust igjen")
-    valg = input("")
+        trust += 10
+    print(f"Nå er shaman durek på vei til Sindre's magiske kjeller og du har {trust} trust. Hva gjør du nå?")
+    valg = input("A: Si ifra til Sindre at han må gjøre klar kjelleren B: Se på youtube.")
+    if valg == "A":
+        rom_24()
+    if valg == "B":
+        rom_game_over()
 
-def rom_24():
-    print
 
 
 def rom_22():
     global trust
     trust -= 20
     print("Han aksepterer og komme på besøk og han er på vei")
-    valg = input
+    valg = input("")
+
 
 
 def rom_23():
     global trust
-    trust += 30
-    print(f"Han er kjapt på vei og du har {trust} trust.")
-    print ("Mens han er på vei ringer du politiet og sier at Shaman Durek er på vei, Du må ta deg et våpen viss han angriper deg. HVa velger du?")
+    print(f"Shaman spørr ingen spørsmål og han er kjapt på vei og du har {trust} trust. Hva gjør du nå?")
+    valg = input("A: Si ifra til Sindre at han må gjøre klar kjelleren B: Se på youtube.")
+    if valg == "A":
+        rom_24()
+    if valg == "B":
+        rom_game_over()
+
+
+def rom_24():
+    print ("Mens han er på vei sier du ifra til Sindre, og han gjør klar crewet og kjelleren, i mellom tiden ringer du politiet og sier at Shaman Durek er på vei, Du må ta deg et våpen viss han angriper deg.\
+Hva velger du?")
     valg = input("A: Kort kniv. B: kjøkken kniv. C: spade. D: baseball-kølle. E: Bue med 5 piler. F: Knyttnever")
     if valg == "A":
         rom_Kort_kniv()
@@ -189,32 +217,136 @@ def rom_23():
 
 
 def rom_Kort_kniv():
-    print
+    global kort_kniv
+    kort_kniv += 1
+    if kort_kniv == 1: print("Du har nå 1 kort kniv og du drar ned i Sindre sin magiske kjeller og der er Sindre, Oompaville, Doge og politiet som er gjømt i basementen.\
+Shaman Durek texter deg på discord og sier at han er der vi skulle møtes. Du texter han og sier at du er der om 1 minutt. Du sier at Shaman Durek er hær til politiet og at de må være klare med gunsa når\
+Shaman Durek kommer ned, men de må vente til vi kunne exspose han for crimesan hannes og når vi gjorde det kan de komme ut. Du går ut og der er Shaman Durek, du tar han med ned til Sindre sin magiske kjeller.\
+Shaman Durek tar en bag på på bordet og det er 20kg av 100% pure meth som han nettopp kom opp med en formula på og ingen andre på markede har dette og han sier at 1 kg selles for 2 mill\
+og han spørr om vi vil joine han og Gustavo fring med og selle dette og bli rike i lag. Hva gjør du nå?")
+    valg = input("A: Joine Shaman Durek og må slåss mot politiet. B: Betray Shaman Durek og la politier arrester han.")
+    if valg == "A":
+        rom_join()
+    if valg == "B":
+        rom_betray()
+    if kort_kniv == 2: print("Du har nå 2 korte kniver og du drar ned i Sindre sin magiske kjeller og der er Sindre, Oompaville, Doge og politiet som er gjømt i basementen.\
+Shaman Durek texter deg på discord og sier at han er der vi skulle møtes. Du texter han og sier at du er der om 1 minutt. Du sier at Shaman Durek er hær til politiet og at de må være klare med gunsa når\
+Shaman Durek kommer ned, men de må vente til vi kunne exspose han for crimesan hannes og når vi gjorde det kan de komme ut. Du går ut og der er Shaman Durek, du tar han med ned til Sindre sin magiske kjeller.\
+Shaman Durek tar en bag på på bordet og det er 20kg av 100% pure meth som han nettopp kom opp med en formula på og ingen andre på markede har dette og han sier at 1 kg selles for 2 mill\
+og han spørr om vi vil joine han og Gustavo fring med og selle dette og bli rike i lag. Hva gjør du nå?")
+    valg = input("A: Joine Shaman Durek og må slåss mot politiet. B: Betray Shaman Durek og la politier arrester han.")
+    if valg == "A":
+        rom_join()
+    if valg == "B":
+        rom_betray()
+
+
 
 def rom_Kjøkken_kniv():
-    print
+    global kjøkken_kniv
+    kjøkken_kniv += 1
+    print("Du har nå 1 kjøkken-kniv og du drar ned i Sindre sin magiske kjeller og der er Sindre, Oompaville, Doge og politiet som er gjømt i basementen.\
+Shaman Durek texter deg på discord og sier at han er der vi skulle møtes. Du texter han og sier at du er der om 1 minutt. Du sier at Shaman Durek er hær til politiet og at de må være klare med gunsa når\
+Shaman Durek kommer ned, men de må vente til vi kunne exspose han for crimesan hannes og når vi gjorde det kan de komme ut. Du går ut og der er Shaman Durek, du tar han med ned til Sindre sin magiske kjeller.\
+Shaman Durek tar en bag på på bordet og det er 20kg av 100% pure meth som han nettopp kom opp med en formula på og ingen andre på markede har dette og han sier at 1 kg selles for 2 mill\
+og han spørr om vi vil joine han og Gustavo fring med og selle dette og bli rike i lag. Hva gjør du nå?")
+    valg = input("A: Joine Shaman Durek og må slåss mot politiet. B: Betray Shaman Durek og la politier arrester han.")
+    if valg == "A":
+        rom_join()
+    if valg == "B":
+        rom_betray()
+
+
 
 def rom_Spade():
-    print
+    global spade
+    spade += 1
+    print("Du har nå 1 spade og du drar ned i Sindre sin magiske kjeller og der er Sindre, Oompaville, Doge og politiet som er gjømt i basementen.\
+Shaman Durek texter deg på discord og sier at han er der vi skulle møtes. Du texter han og sier at du er der om 1 minutt. Du sier at Shaman Durek er hær til politiet og at de må være klare med gunsa når\
+Shaman Durek kommer ned, men de må vente til vi kunne exspose han for crimesan hannes og når vi gjorde det kan de komme ut. Du går ut og der er Shaman Durek, du tar han med ned til Sindre sin magiske kjeller.\
+Shaman Durek tar en bag på på bordet og det er 20kg av 100% pure meth som han nettopp kom opp med en formula på og ingen andre på markede har dette og han sier at 1 kg selles for 2 mill\
+og han spørr om vi vil joine han og Gustavo fring med og selle dette og bli rike i lag. Hva gjør du nå?")
+    valg = input("A: Joine Shaman Durek og må slåss mot politiet. B: Betray Shaman Durek og la politier arrester han.")
+    if valg == "A":
+        rom_join()
+    if valg == "B":
+        rom_betray()
+
+
 
 def rom_Baseball_kølle():
-    print
+    global baseball_kølle
+    baseball_kølle += 1 
+    print("Du har nå 1 baseball-kølle og du drar ned i Sindre sin magiske kjeller og der er Sindre, Oompaville, Doge og politiet som er gjømt i basementen.\
+Shaman Durek texter deg på discord og sier at han er der vi skulle møtes. Du texter han og sier at du er der om 1 minutt. Du sier at Shaman Durek er hær til politiet og at de må være klare med gunsa når\
+Shaman Durek kommer ned, men de må vente til vi kunne exspose han for crimesan hannes og når vi gjorde det kan de komme ut. Du går ut og der er Shaman Durek, du tar han med ned til Sindre sin magiske kjeller.\
+Shaman Durek tar en bag på på bordet og det er 20kg av 100% pure meth som han nettopp kom opp med en formula på og ingen andre på markede har dette og han sier at 1 kg selles for 2 mill\
+og han spørr om vi vil joine han og Gustavo fring med og selle dette og bli rike i lag. Hva gjør du nå?")
+    valg = input("A: Joine Shaman Durek og må slåss mot politiet. B: Betray Shaman Durek og la politier arrester han.")
+    if valg == "A":
+        rom_join()
+    if valg == "B":
+        rom_betray()
+
+
 
 def rom_Pil_og_bue():
-    print
+    global bue
+    global piler
+    bue += 1
+    piler += 5
+    print("Du har nå 1 bue og 5 piler og du drar ned i Sindre sin magiske kjeller og der er Sindre, Oompaville, Doge og politiet som er gjømt i basementen.\
+Shaman Durek texter deg på discord og sier at han er der vi skulle møtes. Du texter han og sier at du er der om 1 minutt. Du sier at Shaman Durek er hær til politiet og at de må være klare med gunsa når\
+Shaman Durek kommer ned, men de må vente til vi kunne exspose han for crimesan hannes og når vi gjorde det kan de komme ut. Du går ut og der er Shaman Durek, du tar han med ned til Sindre sin magiske kjeller.\
+Shaman Durek tar en bag på på bordet og det er 20kg av 100% pure meth som han nettopp kom opp med en formula på og ingen andre på markede har dette og han sier at 1 kg selles for 2 mill\
+og han spørr om vi vil joine han og Gustavo fring med og selle dette og bli rike i lag. Hva gjør du nå?")
+    valg = input("A: Joine Shaman Durek og må slåss mot politiet. B: Betray Shaman Durek og la politier arrester han.")
+    if valg == "A":
+        rom_join()
+    if valg == "B":
+        rom_betray()
+
+
 
 def rom_knyttnever():
     global Chadness
     Chadness += 50
+    print("Du har ingen våpen annet enn 2 knyttnever og du drar ned i Sindre sin magiske kjeller og der er Sindre, Oompaville, Doge og politiet som er gjømt i basementen.\
+Shaman Durek texter deg på discord og sier at han er der vi skulle møtes. Du texter han og sier at du er der om 1 minutt. Du sier at Shaman Durek er hær til politiet og at de må være klare med gunsa når\
+Shaman Durek kommer ned, men de må vente til vi kunne exspose han for crimesan hannes og når vi gjorde det kan de komme ut. Du går ut og der er Shaman Durek, du tar han med ned til Sindre sin magiske kjeller.\
+Shaman Durek tar en bag på på bordet og det er 20kg av 100% pure meth som han nettopp kom opp med en formula på og ingen andre på markede har dette og han sier at 1 kg selles for 2 mill\
+og han spørr om vi vil joine han og Gustavo fring med og selle dette og bli rike i lag. Hva gjør du nå?")
+    valg = input("A: Joine Shaman Durek og må slåss mot politiet. B: Betray Shaman Durek og la politier arrester han.")
+    if valg == "A":
+        rom_join()
+    if valg == "B":
+        rom_betray()
+
+
+
+def rom_betray():
+    print
+
+
+def rom_join():
     print
 
 
 
+def rom_game_over():
+    print("trodde du faktisk at det var det riktige valget, Stupid")
+    valg = input("Du tapte. vil du starte på nytt. ja eller nei")
+    if valg == "ja":
+        rom_1
+    if valg == "nei":
+        print("Dårlig")
+    else:
+        print("bor, du skal type ja eller nei din bimbo.")
 
 
 
-
-
+if trust <= 0:
+    trust = 0
 
 
 
