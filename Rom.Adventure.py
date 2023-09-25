@@ -1,3 +1,5 @@
+import random
+hp = 100
 trust = 40
 Chadness = 10
 kort_kniv = 0
@@ -226,7 +228,7 @@ Shaman Durek tar en bag på på bordet og det er 20kg av 100% pure meth som han 
 og han spørr om vi vil joine han og Gustavo fring med og selle dette og bli rike i lag. Hva gjør du nå?")
     valg = input("A: Joine Shaman Durek og må slåss mot politiet. B: Betray Shaman Durek og la politier arrester han.")
     if valg == "A":
-        rom_join()
+        rom_join_kort_kniv_1()
     if valg == "B":
         rom_betray()
     if kort_kniv == 2: print("Du har nå 2 korte kniver og du drar ned i Sindre sin magiske kjeller og der er Sindre, Oompaville, Doge og politiet som er gjømt i basementen.\
@@ -236,7 +238,7 @@ Shaman Durek tar en bag på på bordet og det er 20kg av 100% pure meth som han 
 og han spørr om vi vil joine han og Gustavo fring med og selle dette og bli rike i lag. Hva gjør du nå?")
     valg = input("A: Joine Shaman Durek og må slåss mot politiet. B: Betray Shaman Durek og la politier arrester han.")
     if valg == "A":
-        rom_join()
+        rom_join_kort_kniv_2()
     if valg == "B":
         rom_betray()
 
@@ -316,7 +318,7 @@ Shaman Durek texter deg på discord og sier at han er der vi skulle møtes. Du t
 Shaman Durek kommer ned, men de må vente til vi kunne exspose han for crimesan hannes og når vi gjorde det kan de komme ut. Du går ut og der er Shaman Durek, du tar han med ned til Sindre sin magiske kjeller.\
 Shaman Durek tar en bag på på bordet og det er 20kg av 100% pure meth som han nettopp kom opp med en formula på og ingen andre på markede har dette og han sier at 1 kg selles for 2 mill\
 og han spørr om vi vil joine han og Gustavo fring med og selle dette og bli rike i lag. Hva gjør du nå?")
-    valg = input("A: Joine Shaman Durek og må slåss mot politiet. B: Betray Shaman Durek og la politier arrester han.")
+    valg = input("A: Joine Shaman Durek og må slåss mot politiet. B: Betray Shaman Durek og la politier arrester han. -> ")
     if valg == "A":
         rom_join()
     if valg == "B":
@@ -325,11 +327,90 @@ og han spørr om vi vil joine han og Gustavo fring med og selle dette og bli rik
 
 
 def rom_betray():
-    print
+    global trust
+    trust -= 100
+    print("")
 
 
-def rom_join():
-    print
+def rom_join_kort_kniv_1():
+    print("Du joiner Shaman Durek og sier at politiet kommer til og komme fram og det gjør de så nå må dere slåss politiet")
+    print("Det er 10 politi og det er 5 av oss. dere løper fram og angriper politiet.")
+    valg = input("vilket angrep vil du treffe den første politimannen med? A: Dropkick B: Kniv stab C: Kniv slag -> ")
+    if valg == "A":
+        rom_drop_kick()
+    if valg == "B":
+        rom_kort_kniv_stab()
+    if valg == "C":
+        rom_kort_kniv_slag()
+
+
+def rom_drop_kick():
+    valg = input("Hvilken kroppsdel vil du treffe? A: Hodet B: Halsen C: Bryste D: Magen E: Venstre arm F: Høyre arm G: Venstre fot H: Høyre fot I: Ballan")
+    if valg == "A":
+        rom_drop_kick_Hodet()
+    if valg == "B":
+        rom_drop_kick_Halsen()
+    if valg == "C":
+        rom_drop_kick_Bryste()
+    if valg == "D":
+        rom_drop_kick_Magen()
+    if valg == "E":
+        rom_drop_kick_Venstre_arm()
+    if valg == "F":
+        rom_drop_kick_Høyre_arm()
+    if valg == "G":
+        rom_drop_kick_Venste_fot()
+    if valg == "H":
+        rom_drop_kick_Høyre_fot()
+    if valg == "I":
+        rom_drop_kick_Ballan()
+
+
+
+def rom_drop_kick_Hodet():
+    tilfeldig = random.randint()
+    print("")
+
+def rom_drop_kick_Halsen():
+    tilfeldig = random.randint()
+    print("")
+
+def rom_drop_kick_Bryste():
+    tilfeldig = random.randint()
+    print("")
+
+def rom_drop_kick_Magen():
+    tilfeldig = random.randint()
+    print("")
+
+def rom_drop_kick_Venstre_arm():
+    tilfeldig = random.randint()
+    print("")
+
+def rom_drop_kick_Høyre_arm():
+    tilfeldig = random.randint()
+    print("")
+
+def rom_drop_kick_Venste_fot():
+    tilfeldig = random.randint()
+    print("")
+
+def rom_drop_kick_Høyre_fot():
+    tilfeldig = random.randint()
+    print("")
+
+def rom_drop_kick_Ballan():
+    tilfeldig = random.randint()
+    print("")
+
+
+
+def rom_kort_kniv_stab():
+    valg = input("Hvilken kroppsdel vil du treffe? A: Hode B: Halsen C: Bryste D: Magen E: Venstre arm F: Høyre arm G: Venstre fot H: Høyre fot I: Ballan")
+
+
+def rom_kort_kniv_slag():
+    valg = input("Hvilken kroppsdel vil du treffe? A: Hode B: Halsen C: Bryste D: Magen E: Venstre arm F: Høyre arm G: Venstre fot H: Høyre fot I: Ballan")
 
 
 
